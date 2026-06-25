@@ -1214,6 +1214,16 @@ function bindStatic(){
   });
 }
 
+function boot(){
+  loadData().then(function(){
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("app").style.display = "";
+    renderShell();
+    renderMain();
+    bindStatic();
+  });
+}
+boot();
 </script>
 </body>
 </html>
