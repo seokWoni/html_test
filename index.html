@@ -594,19 +594,7 @@ function normalizeData(data){
   return data;
 }
 function loadData(){
-  return window.storage.get(STORAGE_KEY, true)
-    .then(function(res){
-      if(res && res.value){
-        try{ state.data = normalizeData(JSON.parse(res.value)); }
-        catch(e){ state.data = defaultData(); }
-      } else {
-        state.data = defaultData();
-      }
-    })
-    .catch(function(){
-      state.data = defaultData();
-      state.storageOk = false;
-    });
+  return {};
 }
 function saveData(){
   return window.storage.set(STORAGE_KEY, JSON.stringify(state.data), true)
